@@ -13,6 +13,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 
+//app.use('/api/account', require('./routes/account-route'));
+app.use('/api/account', require('./routes/account-route'));
+
 //DB config
 const db = require('./config/keys').mongoURI;
 
