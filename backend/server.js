@@ -12,6 +12,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //BodyParser Middleware
 app.use(bodyParser.json());
 
+//'/api/payment' location
+app.use('/api/payment', require('./routes/payment-route'));
 
 //DB config
 const db = require('./config/keys').mongoURI;
