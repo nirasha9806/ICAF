@@ -12,6 +12,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //BodyParser Middleware
 app.use(bodyParser.json());
 
+//'/api/payment' location
+app.use('/api/payment', require('./routes/payment-route'));
 
 //app.use('/api/account', require('./routes/account-route'));
 app.use('/api/account', require('./routes/account-route'));

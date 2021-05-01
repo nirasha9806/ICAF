@@ -1,27 +1,28 @@
+import React from 'react';
 import './App.css';
-import React, {Component} from 'react';
-import {BrowserRouter as Router,Switch,Route} from 'react-router-dom';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import {BrowserRouter as Router, Route} from 'react-router-dom'
 
+import AttendeePayment from './components/attendee-payment-component/attendee-payment-component';
 import Approve from './components/Approving-component/approving';
-//
-class App extends Component{
 
-  render(){
-    return(
+function App() {
+  return (
 
-      <Router>
+    <Router>
+      //kaveena
+      <Route exact path="/attendee-payment-component" component={AttendeePayment} />
+    
+    
+    
+    
+    
+    
+      //nethmi    
+      <Route exact path = '/approve' component = {Approve} />
 
-        <Switch>
-          
-          <Route exact path = '/approve' component = {Approve} />
-          
-        </Switch>
-        
-      </Router>
-
-    );
-  }
+    </Router>
+    
+  );
 }
 
 
