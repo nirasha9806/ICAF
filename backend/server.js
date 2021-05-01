@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const path = require("path");
 const app = express();
+const conferenceRoute=require('./routes/conference-route');
 
 app.use(cors());
 
@@ -11,6 +12,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 //BodyParser Middleware
 app.use(bodyParser.json());
+
+// conference route
+app.use('/conference',conferenceRoute);
 
 
 //DB config
