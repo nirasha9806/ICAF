@@ -8,12 +8,13 @@ import Approve from './components/Approving-component/approving';
 import Create from './components/create-component/create';
 import Edit from './components/edit-component/edit';
 import Index from './components/index-component/index';
+import Landing from './components/landing-component/landing';
 
 function App() {
   return (
 
     <Router>
-      //kaveena
+      {/* //kaveena */}
       <Route exact path="/attendee-payment-component" component={AttendeePayment} />
     
     
@@ -21,7 +22,7 @@ function App() {
     
     
     
-      //nethmi    
+      {/* //nethmi     */}
       <Route exact path = '/approve' component = {Approve} />
     
     
@@ -29,10 +30,11 @@ function App() {
     
     
     
-    //sanduni
+    {/* //sanduni */}
      <Route exact path='/create' component = {Create}/>
      <Route exact path='/edit/:id' component = {Edit}/>
      <Route exact path='/index' component = {Index}/>
+     <Route exact path='/landing' component = {Landing}/>
 
     </Router>
     
