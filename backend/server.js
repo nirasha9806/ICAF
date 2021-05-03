@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const path = require("path");
 const app = express();
+const conferenceRoute=require('./routes/conference-route');
 
 app.use(cors());
 
@@ -11,6 +12,31 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 //BodyParser Middleware
 app.use(bodyParser.json());
+
+//sanduni
+// conference route
+app.use('/conference',conferenceRoute);
+
+
+
+
+
+//kaveena
+//'/api/payment' location
+app.use('/api/payment', require('./routes/payment-route'));
+
+
+
+
+
+
+//nethmi
+app.use('/api/account', require('./routes/account-route'));
+
+
+
+
+
 
 
 //nirasha
