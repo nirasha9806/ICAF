@@ -13,6 +13,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 
+//nirasha
+app.use('/api/documentUpload', require('./routes/documentUpload-route'));
+
+
+
+
+
 //DB config
 const db = require('./config/keys').mongoURI;
 
