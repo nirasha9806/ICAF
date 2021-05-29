@@ -17,7 +17,7 @@ export default class Edit extends Component{
     }
 }
 componentDidMount(){
-    axios.get('http://localhost:4000/conference/edit'+this.props.match.params.id)
+    axios.get('http://localhost:5000/conference/edit/'+this.props.match.params.id)
     .then(response=>{
         this.setState({
             research_name:response.data.research_name,
@@ -53,10 +53,10 @@ onsubmit(e){
         author_name : this.state.author_name,
         research_Type : this.state.research_Type
     };
-    axios.post('http://localhost:5000/conference/update'+this.props.match.params.id,obj)
+    axios.post('http://localhost:5000/conference/update/'+this.props.match.params.id,obj)
     .then(res=>console.log(res.data));
 
-    this.props.history.push('/index')
+    window.location = '/index';
 }
 
 

@@ -8,7 +8,9 @@ import Approve from './components/Approving-component/approving';
 import Create from './components/create-component/create';
 import Edit from './components/edit-component/edit';
 import Index from './components/index-component/index';
+import Landing from './components/landing-component/landing';
 import DocumentUpload from './components/document-upload-component/DocumentUpload';
+
 
 function App() {
   return (
@@ -21,21 +23,18 @@ function App() {
     
     
     
-    
 
       {/* //nethmi     */}
       <Route exact path = '/approve' component = {Approve} />
     
     
     
-    
-    
-    
-
+  
     {/* //sanduni */}
      <Route exact path='/create' component = {Create}/>
      <Route exact path='/edit/:id' component = {Edit}/>
      <Route exact path='/index' component = {Index}/>
+     <Route exact path='/landing' component = {Landing}/>
 
 
 
