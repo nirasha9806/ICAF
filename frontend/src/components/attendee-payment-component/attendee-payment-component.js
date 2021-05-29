@@ -153,7 +153,7 @@ export default class AttendeePayment extends Component {
     render() {
 
         return(
-            <div className ="App">
+            <div className ="App" >
 
             <br/><br/>
 
@@ -162,22 +162,18 @@ export default class AttendeePayment extends Component {
                         
                 </center>
 
-                <h2> Payment Details Form  </h2>
+                <h4> Payment Details Form  </h4> <p></p>
 
-                <div className="shadow p-5" style= {{width:'45rem', marginLeft:'345px'}}>
+                <div className="shadow p-5" style= {{width:'35rem', marginLeft:'400px'}} >
 
-                       
-                        <div className="card-body">
+                <form onSubmit={this.handleSubmit}>
                         
                             <div class="card-header">
                                 <b><center>Payment Information</center></b>
-                            </div>
-
-                        </div>
-                    <form onSubmit={this.handleSubmit}>
+                            </div><br/>
 
                         <div class="form-group">
-                                 &nbsp; &nbsp; &nbsp;<label for="" required>Attendee Name *</label>
+                                 &nbsp; &nbsp; &nbsp;<label for="" required style={{color: "blue"}}>Attendee Name * </label>
                                 <div>
                                 <input type="text" class="form-control"
                                        value={this.state.name}
@@ -187,7 +183,7 @@ export default class AttendeePayment extends Component {
 
                         <div class="form-group">
                                 
-                                &nbsp; &nbsp; &nbsp;<label for="email" required>Attendee Email address *</label>
+                                &nbsp; &nbsp; &nbsp;<label for="email" required style={{color: "blue"}}>Attendee Email address *</label>
                                 <div>
                                 <input type="text" class="form-control" name="email" placeholder="enter email"
                                  value={this.state.email}
@@ -200,27 +196,25 @@ export default class AttendeePayment extends Component {
 
                     <div className="form-group">
 
-                        <label>Event Type *</label>    
-                    </div>
-    
-                    <input type="radio"
-                    name="radio1"
-                    value="Research Paper Presentation"
-                    required
-                    checked={this.state.radio1 ==="Research Paper Presentation"} onChange={this.onChangeRadio1}
-                    /> Research Paper Presentation <br/>
+                        <label style={{color: "blue"}}>Event Type *</label> <br/>
+                        <input type="radio"
+                            name="radio1"
+                            value="Research Paper Presentation"
+                            required
+                            checked={this.state.radio1 ==="Research Paper Presentation"} onChange={this.onChangeRadio1}
+                            /> Research Paper Presentation <br/>
 
-                    <input type="radio" 
-                    name="radio1" 
-                    value="Workshop" 
-                    required
-                    checked={this.state.radio1 ==="Workshop"} onChange={this.onChangeRadio1}
-                    /> Workshop <br/>
-                     
-                    <p></p>
+                            <input type="radio" 
+                            name="radio1" 
+                            value="Workshop" 
+                            required
+                            checked={this.state.radio1 ==="Workshop"} onChange={this.onChangeRadio1}
+                        /> Workshop <br/>
+
+                    </div>
 
                     <div class="form-group">
-                                 &nbsp; &nbsp; &nbsp;<label for="" required>Payment Amount *</label>
+                                 &nbsp; &nbsp; &nbsp;<label for="" required style={{color: "blue"}}>Payment Amount *</label>
                                 <div>
                                 <input type="text" class="form-control"
                                        value={this.state.amount}
@@ -228,7 +222,6 @@ export default class AttendeePayment extends Component {
                                 placeholder="enter amount"/></div>
                     </div>
                     
-                        <br></br><br></br>
 
                         <div className="card-body">
                                 
@@ -239,7 +232,7 @@ export default class AttendeePayment extends Component {
                         </div>
 
                         <div class="form-group">
-                                    &nbsp; &nbsp; &nbsp;<label for="" required>Card Number *</label>
+                                    &nbsp; &nbsp; &nbsp;<label for="" required style={{color: "blue"}}>Card Number *</label>
                                     <div>
                                     <input type="text" class="form-control"
                                         value={this.state.number}
@@ -248,7 +241,7 @@ export default class AttendeePayment extends Component {
                         </div>
 
                         <div class="form-group">
-                                    &nbsp; &nbsp; &nbsp;<label for="" required>Expiry Date *</label>
+                                    &nbsp; &nbsp; &nbsp;<label for="" required style={{color: "blue"}}>Expiry Date *</label>
                                     <div>
                                     <input type="text" class="form-control"
                                         value={this.state.date}
@@ -257,7 +250,7 @@ export default class AttendeePayment extends Component {
                         </div>
 
                         <div class="form-group">
-                                    &nbsp; &nbsp; &nbsp;<label for="" required> Security Code *</label>
+                                    &nbsp; &nbsp; &nbsp;<label for="" required style={{color: "blue"}}> Security Code *</label>
                                     <div>
                                     <input type="text" class="form-control"
                                         value={this.state.code}
@@ -267,8 +260,8 @@ export default class AttendeePayment extends Component {
 
 
                          
-                            <input type="submit" value="Submit" class="btn btn-dark" onClick={ event => window.confirm("Are you sure you want to add this payment details?")}/>
-
+                            <input type="submit" value="Submit" class="btn btn-info"  onClick={ event => window.confirm("Are you sure you want to add this payment details?")}/>
+                           
                         </form>
                 </div>
             
