@@ -1,6 +1,6 @@
 import React,{Fragment, useState} from 'react';
 import Message from './Message';
-import progress from './progress';
+import Progress from './Progress';
 import axios from 'axios';
 
 const FileUpload = ()=>{
@@ -87,7 +87,7 @@ const FileUpload = ()=>{
                     uploadedFile ? (
                         <div className="row mt-5">
                             <div className="col-md-6 m-auto">
-                                <h3 className="text-center">{uploadedFile,fileName}</h3>
+                                <h3 className="text-center">{uploadedFile,filename}</h3>
                                 <img style={{width:'100%'}} sr={uploadedFile.filePath} alt="/">
 
                                 </img>

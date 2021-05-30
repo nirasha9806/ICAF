@@ -9,7 +9,7 @@ import Create from './components/create-component/create';
 import Edit from './components/edit-component/edit';
 import Index from './components/index-component/index';
 import Landing from './components/landing-component/landing';
-import FileUpload from './components/admin-fileUpload-component/FileUpload';
+import FileUpload from './components/admin-fileUpload-component/fileUpload';
 
 function App() {
   return (
