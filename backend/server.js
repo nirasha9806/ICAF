@@ -14,6 +14,30 @@ app.use(bodyParser.json());
 
 //'/api/payment' location
 app.use('/api/payment', require('./routes/payment-route'));
+<<<<<<< Updated upstream
+=======
+app.use('/api/researchPaperTable', require('./routes/researchPaperTable-route'));
+
+
+
+
+
+//nethmi
+app.use('/api/account', require('./routes/account-route'));
+
+
+
+
+
+
+
+//nirasha
+app.use('/api/documentUpload', require('./routes/documentUpload-route'));
+
+
+
+
+>>>>>>> Stashed changes
 
 //DB config
 const db = require('./config/keys').mongoURI;
