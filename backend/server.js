@@ -57,6 +57,13 @@ app.use('/api/account', require('./routes/account-route'));
 
 
 
+//nirasha
+app.use('/api/documentUpload', require('./routes/documentUpload-route'));
+
+
+
+
+
 //DB config
 const db = require('./config/keys').mongoURI;
 
