@@ -17,6 +17,8 @@ app.use('/api/payment', require('./routes/payment-route'));
 
 //app.use('/api/account', require('./routes/account-route'));
 app.use('/api/account', require('./routes/account-route'));
+app.use('/api/retrieve', require('./routes/retrieveeditordetails-route'));
+app.use('/api/inserteditordetails', require('./routes/inserteditordetails-route'));
 
 //DB config
 const db = require('./config/keys').mongoURI;
