@@ -1,20 +1,16 @@
-const express = require('express');
-const accountRoutes = express.Router();
+const express=require('express');
+const AccountRoutes=express.Router();
+let {Account}= require('../models/account-model');
 
-let {Account} = require('../models/account-model');
-accountRoutes.route('/add').post(function(req,res){
-
-    let account = new Account(req.body);
+AccountRoutes.route('/add').post(function(req,res){
+    let account=new Account(req.body);
     account.save()
-            .then(account=>{
-                res.status(200).json({'account':'Account details are added successfully'});
-
-            })
-            .catch(err=>{
-                res.status(400).send("Unable to save to database");
-            });
-
+    .then(account=>{
+        res.status(200).json({'account': 'account is added succesfully'});
+    })
+    .catch(err=>{
+        res.status(400).send("unable to save database");
+    });
 });
 
-
-module.exports = accountRoutes;
+module.exports = AccountRoutes;
