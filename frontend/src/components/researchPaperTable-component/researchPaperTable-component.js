@@ -15,20 +15,20 @@ export default class ResearchPaperTable extends Component { //implemented class 
 
     //get the all researchpapers from database
     componentDidMount() {
-        axios.get('http://localhost:5000/researchpapers')
-          .then(res => {
-            const researchpapers = res.data;
-            this.setState({ researchpapers });
-          })
+      axios.get('http://localhost:5000/api/researchPaperTable')
+        .then(res => {
+          const researchpapers = res.data;
+          this.setState({ researchpapers });
+        })
     }
-
     //delete method
     delete(id) {
-        axios.post('/api/researchpapers/delete/'+id)
-          .then(response => {
-            this.componentDidMount();
+      axios.post('http://localhost:5000/api/researchPaperTable/delete/'+id)
+        .then(response => {
+          this.componentDidMount();
     });
     }
+
 
     render() {
         return(
@@ -76,8 +76,9 @@ export default class ResearchPaperTable extends Component { //implemented class 
                     </td>
 
                     <td>
-                     <button className="btn btn-danger btn-sm" 
-                     ><i className="fas fa-trash"></i> 
+                    <button className="btn btn-danger btn-sm" 
+                     onClick={ event => window.confirm("Are you sure you want to delete this paper details?")
+                     && this.delete(ResearchPaper._id)}><i className="fas fa-trash"></i> 
                      Decline 
                      </button>
                     </td>

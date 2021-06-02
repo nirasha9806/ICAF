@@ -14,8 +14,8 @@ app.use(bodyParser.json());
 
 //'/api/payment' location
 app.use('/api/payment', require('./routes/payment-route'));
-<<<<<<< Updated upstream
-=======
+
+//'/api/researchPaperTable' location
 app.use('/api/researchPaperTable', require('./routes/researchPaperTable-route'));
 
 
@@ -37,7 +37,7 @@ app.use('/api/documentUpload', require('./routes/documentUpload-route'));
 
 
 
->>>>>>> Stashed changes
+
 
 //DB config
 const db = require('./config/keys').mongoURI;

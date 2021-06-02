@@ -19,7 +19,7 @@ router.get('/', function(req, res){
 
 //delete from database
 router.post('/delete/:id',function (req,res){
-    Voucher.deleteOne({_id: req.params.id}, function(err, voucher){
+    ResearchPaper.deleteOne({_id: req.params.id}, function(err, researchpapers){
         if(err) res.json(err);
         else res.json('Successfully Deleted');
 
