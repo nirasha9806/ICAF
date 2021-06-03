@@ -17,12 +17,13 @@ app.use('/api/payment', require('./routes/payment-route'));
 
 //app.use('/api/account', require('./routes/account-route'));
 app.use('/api/account', require('./routes/account-route'));
-<<<<<<< Updated upstream
+
+app.use('/api/conference', require('./routes/retrieveeditordata-route'));
+
 app.use('/api/retrieve', require('./routes/retrieveeditordetails-route'));
 app.use('/api/inserteditordetails', require('./routes/inserteditordetails-route'));
-=======
-app.use('/api/conference', require('./routes/retrieveeditordata-route'));
-app.use('/api/inserteditordetails', require('./routes/inserteditordetails-route'));
+app.use('/api/getinserteditordetails', require('./routes/getinserteditordetails-route'));
+
 
 
 
@@ -36,7 +37,7 @@ app.use('/api/documentUpload', require('./routes/documentUpload-route'));
 
 
 
->>>>>>> Stashed changes
+
 
 //DB config
 const db = require('./config/keys').mongoURI;
