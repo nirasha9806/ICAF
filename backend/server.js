@@ -18,6 +18,8 @@ app.use('/api/payment', require('./routes/payment-route'));
 //'/api/researchPaperTable' location
 app.use('/api/researchPaperTable', require('./routes/researchPaperTable-route'));
 
+//'/api/workshopProposals' location
+app.use('/api/workshopProposals', require('./routes/workshopProposals-route'));
 
 
 

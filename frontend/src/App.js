@@ -4,7 +4,7 @@ import {BrowserRouter as Router, Route} from 'react-router-dom'
 
 import AttendeePayment from './components/attendee-payment-component/attendee-payment-component';
 import ResearchPaperTable from './components/researchPaperTable-component/researchPaperTable-component';
-
+import WorkshopProposalsTable from './components/workshopProposals-component/workshopProposals-component';
 import Approve from './components/Approving-component/approving';
 import Create from './components/create-component/create';
 import Edit from './components/edit-component/edit';
@@ -23,6 +23,7 @@ function App() {
 
       <Route exact path="/researchPaperTable-component" component={ResearchPaperTable} />
     
+      <Route exact path="/workshopProposals-component" component={WorkshopProposalsTable} />
     
     
     
