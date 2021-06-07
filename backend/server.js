@@ -22,9 +22,9 @@ app.use('/conference',conferenceRoute);
 
 
 //kaveena
-//'/api/payment' location
 app.use('/api/payment', require('./routes/payment-route'));
-
+app.use('/api/researchPaperTable', require('./routes/researchPaperTable-route'));
+app.use('/api/workshopProposals', require('./routes/workshopProposals-route'));
 
 
 
@@ -41,7 +41,6 @@ app.use('/api/account', require('./routes/account-route'));
 
 //nirasha
 app.use('/api/documentUpload', require('./routes/documentUpload-route'));
-
 
 
 
