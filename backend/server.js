@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const path = require("path");
 const app = express();
+const conferenceRoute=require('./routes/conference-route');
 
 app.use(cors());
 
@@ -12,14 +13,19 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //BodyParser Middleware
 app.use(bodyParser.json());
 
-//'/api/payment' location
+//sanduni
+// conference route
+app.use('/conference',conferenceRoute);
+
+
+
+
+
+//kaveena
 app.use('/api/payment', require('./routes/payment-route'));
-
-//'/api/researchPaperTable' location
 app.use('/api/researchPaperTable', require('./routes/researchPaperTable-route'));
-
-//'/api/workshopProposals' location
 app.use('/api/workshopProposals', require('./routes/workshopProposals-route'));
+
 
 
 
@@ -35,8 +41,6 @@ app.use('/api/account', require('./routes/account-route'));
 
 //nirasha
 app.use('/api/documentUpload', require('./routes/documentUpload-route'));
-
-
 
 
 

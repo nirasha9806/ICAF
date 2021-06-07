@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import '../../css/AttendeePayment.css';
-import { Button} from 'react-bootstrap';
 import axios from 'axios';
 
 export default class AttendeePayment extends Component {
