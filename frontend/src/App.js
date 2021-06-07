@@ -9,6 +9,7 @@ import Create from './components/create-component/create';
 import Edit from './components/edit-component/edit';
 import Index from './components/index-component/index';
 import Landing from './components/landing-component/landing';
+import FileUpload from './components/admin-fileUpload-component/fileUpload';
 import DocumentUpload from './components/document-upload-component/DocumentUpload';
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
      <Route exact path='/edit/:id' component = {Edit}/>
      <Route exact path='/index' component = {Index}/>
      <Route exact path='/landing' component = {Landing}/>
+     <Route exact path='/uploads' component = {FileUpload}/>
 
 
 
