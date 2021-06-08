@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 //import { Link } from 'react-router-dom';
 import axios from 'axios';
-import '../../css/ResearchPaper.css';
+import '../../css/AttendeePayment.css';
 
 export default class ResearchPaperTable extends Component { //implemented class component
 
