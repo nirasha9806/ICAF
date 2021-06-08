@@ -5,6 +5,7 @@ const cors = require('cors');
 const path = require("path");
 const app = express();
 const conferenceRoute=require('./routes/conference-route');
+const researcherRoute = require('./routes/researcher-route');
 
 app.use(cors());
 
@@ -40,7 +41,7 @@ app.use('/api/account', require('./routes/account-route'));
 
 
 //nirasha
-app.use('/api/documentUpload', require('./routes/documentUpload-route'));
+app.use('/api/researcher', researcherRoute);
 
 
 
