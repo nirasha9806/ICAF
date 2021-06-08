@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const path = require("path");
 const app = express();
+var fileUpload = require('express-fileupload');
 const conferenceRoute=require('./routes/conference-route');
 const researcherRoute = require('./routes/researcher-route');
 
@@ -18,14 +19,31 @@ app.use(bodyParser.json());
 // conference route
 app.use('/conference',conferenceRoute);
 
+// file upload
+app.use(fileUpload());
+
+app.post('/upload',(req,res)=>{
+    if(req.files===null){
+        return res.status(400).json({msg: 'No file uploaded'});
+
+    }
+    const file = req.files.file;
+    file.mv('${__dirname}/ICAF/frontend/public/uploads/${file.name}', err=>{
+        if(err){
+            consile.error(err);
+            res.status(500).send(err);
+        }
+        res.json({fileName: file.name, filePath: '/uploads/${file.name}'});
+    });
+}) 
 
 
 
 
 //kaveena
-//'/api/payment' location
 app.use('/api/payment', require('./routes/payment-route'));
-
+app.use('/api/researchPaperTable', require('./routes/researchPaperTable-route'));
+app.use('/api/workshopProposals', require('./routes/workshopProposals-route'));
 
 
 
@@ -42,7 +60,6 @@ app.use('/api/account', require('./routes/account-route'));
 
 //nirasha
 app.use('/api/researcher', researcherRoute);
-
 
 
 

@@ -1,53 +1,69 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 
-export default class Create extends Component{
-
+export default class Edit extends Component{
     constructor(props){
         super(props);
-        //this.onChangeResearchName=this.onChangeResearchName.bind(this);
-        //this.onChangeAuthorName=this.onChangeAuthorName.bind(this);
-       //this.onChangeResearchType = this.onChangeResearchType.bind(this);
-        //this.onsubmit=this.onsubmit.bind(this);
+        this.onChangeResearchName=this.onChangeResearchName.bind(this);
+        this.onChangeAuthorName=this.onChangeAuthorName.bind(this);
+        this.onChangeResearchType = this.onChangeResearchType.bind(this);
+        this.onsubmit=this.onsubmit.bind(this);
 
         this.state={
             research_name: '',
             author_name: '',
             research_Type: ''
-        }
+    
     }
-    onChangeResearchName(e){
-        this.setState( {
-            research_name: e.target.value
-        });
-    }
-    onChangeAuthorName(e){
+}
+componentDidMount(){
+    axios.get('http://localhost:5000/conference/edit/'+this.props.match.params.id)
+    .then(response=>{
         this.setState({
-            author_name:e.target.value
+            research_name:response.data.research_name,
+            author_name:response.data.author_name,
+            research_Type : response.data.research_Type
         });
-    }
-    onChangeResearchType(e){
-        this.setState({
-            research_Type:e.target.value
-        });
-    }
-    onsubmit(e){
-        e.preventDefault();
-        const obj= {
-            research_name : this.state.research_name,
-            author_name : this.state.author_name,
-            research_Type : this.state.research_Type
-        };
-        axios.post('http://localhost:5000/conference/add',obj).then(res=>console.log("Successfull"));
-       
-    }
+        
+    })
+    .catch(function (error) {
+        console.log(error);
+        
+    })
+}
+onChangeResearchName(e){
+    this.setState( {
+        research_name: e.target.value
+    });
+}
+onChangeAuthorName(e){
+    this.setState({
+        author_name:e.target.value
+    });
+}
+onChangeResearchType(e){
+    this.setState({
+        research_Type:e.target.value
+    });
+}
+onsubmit(e){
+    e.preventDefault();
+    const obj= {
+        research_name : this.state.research_name,
+        author_name : this.state.author_name,
+        research_Type : this.state.research_Type
+    };
+    axios.post('http://localhost:5000/conference/update/'+this.props.match.params.id,obj)
+    .then(res=>console.log(res.data));
 
+    window.location = '/index';
+}
 
 
 render(){
     return(
         <div style={{marginTop:10}}>
-           <h3>Add Conference details </h3>
+           <h3>Edit Conference details </h3>
              <form onSubmit={this.onsubmit}>
                  <div className="form-group">
                      <label>Add Research Name : </label>
@@ -74,12 +90,10 @@ render(){
                  </div>
 
                  <div className="form-group">
-                     <input type="submit" value="Register research" className="btn btn-primary"/>
+                     <input type="submit" value="Edit Details" className="btn btn-primary"/>
                  </div>
              </form>
          </div>
     )
 }
-
-
 }
