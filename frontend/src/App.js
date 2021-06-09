@@ -10,11 +10,15 @@ import Edit from './components/edit-component/edit';
 import Index from './components/index-component/index';
 import Landing from './components/landing-component/landing';
 import DocumentUpload from './components/document-upload-component/DocumentUpload';
+import AttendeePayment from './components/attendee-payment-component/Payment';
+import ResearchPaperTable from './components/researchpapers-reviewer-component/ViewResearches';
+import WorkshopProposalsTable from './components/workshopproposals-reviewer-component/ViewProposals';
 
 function App() {
   return (
 
     <Router>
+
       {/* //kaveena */}
       <Route exact path="/attendee-payment-component" component={AttendeePayment} />
     
@@ -68,6 +72,15 @@ function App() {
      {/* nirasha */}
      <Route path='/documentUpload' component={DocumentUpload}/>
 
+
+
+      {/* nirasha */}
+      <Route path='/documentUpload' component={DocumentUpload} />
+    
+      {/* //kaveena */}
+      <Route  path="/attendeePayment" component={AttendeePayment} />
+      <Route  path="/researchPapers" component={ResearchPaperTable} />
+      <Route  path="/workshopProposals" component={WorkshopProposalsTable} />
 
     </Router>
     
