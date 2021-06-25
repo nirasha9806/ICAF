@@ -14,6 +14,7 @@ import {
   CButton,
 } from '@coreui/react';
 import axios from 'axios';
+import { MyDropzone } from '../signup-component/DocumentUpload';
 
 export default function DocumentUpload() {
   const [selectedType, setSelectedType] = useState(null);
@@ -182,6 +183,24 @@ export default function DocumentUpload() {
               </CFormGroup>
             </CCardBody>
           </CCard>
+        </CCol>
+        <CCol sm='12' md='8' lg='8'>
+          {selectedType ? (
+            <CCard>
+              <MyDropzone
+                // files={files}
+                // setFiles={setFiles}
+                // uploadPercentage={uploadPercentage}
+                // uploadProcess={uploadProcess}
+              />
+            </CCard>
+          ) : (
+            <CCard style={{ minHeight: '205px' }}>
+              <p className={'my-auto'} style={{ textAlign: 'center' }}>
+                Please select a User Type
+              </p>
+            </CCard>
+          )}
         </CCol>
       </CRow>
     </div>

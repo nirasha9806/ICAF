@@ -7,6 +7,7 @@ const app = express();
 var fileUpload = require('express-fileupload');
 const conferenceRoute=require('./routes/conference-route');
 const researcherRoute = require('./routes/researcher-route');
+const workshopRoute = require('./routes/workshopPresenter-route');
 
 app.use(cors());
 
@@ -60,7 +61,7 @@ app.use('/api/account', require('./routes/account-route'));
 
 //nirasha
 app.use('/api/researcher', researcherRoute);
-
+app.use('/api/workshop', workshopRoute);
 
 
 
