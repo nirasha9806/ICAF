@@ -9,6 +9,12 @@ const conferenceRoute=require('./routes/conference-route');
 const researcherRoute = require('./routes/researcher-route');
 const workshopRoute = require('./routes/workshopPresenter-route');
 
+const researcherRoute = require('./routes/researcher-route');
+const attendeePaymentRoute = require('./routes/attendeePayment-route');
+const workshopProposalRoute = require('./routes/workshopProposal-route');
+const researchPaperRoute = require('./routes/researchPaper-route');
+
+
 app.use(cors());
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -42,9 +48,9 @@ app.post('/upload',(req,res)=>{
 
 
 //kaveena
-app.use('/api/payment', require('./routes/payment-route'));
-app.use('/api/researchPaperTable', require('./routes/researchPaperTable-route'));
-app.use('/api/workshopProposals', require('./routes/workshopProposals-route'));
+app.use('/api/payment',attendeePaymentRoute);
+app.use('/api/workshopProposal',workshopProposalRoute);
+app.use('/api/researchPaper',researchPaperRoute);
 
 
 
