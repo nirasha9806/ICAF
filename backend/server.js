@@ -12,7 +12,8 @@ const researcherRoute = require('./routes/researcher-route');
 const attendeePaymentRoute = require('./routes/attendeePayment-route');
 const workshopProposalRoute = require('./routes/workshopProposal-route');
 const researchPaperRoute = require('./routes/researchPaper-route');
-
+const ApprovedResearcherRoute = require('./routes/approvedResearches-route');
+const ApprovedProposalsRoute = require('./routes/approvedProposals-route');
 
 app.use(cors());
 
@@ -50,7 +51,8 @@ app.post('/upload',(req,res)=>{
 app.use('/api/payment',attendeePaymentRoute);
 app.use('/api/workshopProposal',workshopProposalRoute);
 app.use('/api/researchPaper',researchPaperRoute);
-
+app.use('/api/ApprovedResearcher',ApprovedResearcherRoute);
+app.use('/api/ApprovedProposals',ApprovedProposalsRoute);
 
 
 
