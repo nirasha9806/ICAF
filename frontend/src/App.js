@@ -1,4 +1,5 @@
 import React from 'react';
+<<<<<<< Updated upstream
 import './App.css';
 import {BrowserRouter as Router, Route} from 'react-router-dom'
 
@@ -13,11 +14,18 @@ import Data from './components/retrieveeditordata-component/fetcheditordata';
 import Index1 from './components/retrieveeditordetailstable-component/fetcheditortable';
 import Index2 from './components/getinserteditordetailstable-component/getinsertdetailstable';
 
+=======
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import Approve from './components/researcher-payment-component/payment';
+import Getdetails from './components/viewconference-component/viewconference';
+import ApproGeteditordetails from './components/approved-conferencedetails-component/approved';
+>>>>>>> Stashed changes
 
 function App() {
   return (
 
     <Router>
+<<<<<<< Updated upstream
       
       {/* //kaveena */}
       <Route exact path="/attendee-payment-component" component={AttendeePayment} />
@@ -30,6 +38,16 @@ function App() {
       <Route exact path = '/retrieve' component = {Index1} />
       <Route exact path = '/took' component = {Index2} />
 
+=======
+   
+        
+
+
+      {/* //nethmi*/}
+      <Route  path="/account" component={Approve} />
+      <Route  path="/retrieves" component={Getdetails} />
+      <Route  path="/insert" component={ApproGeteditordetails} />
+>>>>>>> Stashed changes
     </Router>
     
   );

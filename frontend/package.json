@@ -3,11 +3,19 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+<<<<<<< Updated upstream
     "@testing-library/jest-dom": "^5.12.0",
     "@testing-library/react": "^11.2.6",
     "@testing-library/user-event": "^12.8.3",
     "axios": "^0.21.1",
     "bootstrap": "^4.6.0",
+=======
+    "@coreui/react": "^3.4.6",
+    "@fortawesome/free-solid-svg-icons": "^5.15.3",
+    "@popperjs/core": "^2.9.2",
+    "axios": "^0.21.1",
+    "bootstrap": "^5.0.2",
+>>>>>>> Stashed changes
     "react": "^17.0.2",
     "react-bootstrap": "^1.5.2",
     "react-dom": "^17.0.2",

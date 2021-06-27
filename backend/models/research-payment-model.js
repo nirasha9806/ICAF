@@ -5,7 +5,7 @@ let accountSchema = new Schema({
 
     card_number : {
 
-        type : String
+        type : Number
     },
 
     card_holder : {
@@ -15,11 +15,11 @@ let accountSchema = new Schema({
 
     date : {
 
-        type : String
+        type : Date
     },
 
     CVC : {
-        type : String
+        type : Number
     }
 
 },{

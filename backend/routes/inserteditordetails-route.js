@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+<<<<<<< Updated upstream
 
 const { EditorDetails } = require("../models/inserteditordetails-model");
 
@@ -24,5 +25,15 @@ router.route('/delete/:id').post(function (req, res) {
         else res.json('successfully removed');
     });
 });
+=======
+const InsertController = require('../controllers/inserteditordetails-controller');
+
+
+//post method to save data
+router.post("/add",InsertController.AddDetails );
+
+  
+
+>>>>>>> Stashed changes
 
 module.exports = router;
