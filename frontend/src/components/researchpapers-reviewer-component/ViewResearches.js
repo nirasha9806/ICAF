@@ -27,6 +27,31 @@ export default function ResearchPaperTable() {
     });
   }, []);
 
+  const onSubmit = (ResearchPaper) => {
+    const obj = {
+      title: ResearchPaper.title,
+      date: ResearchPaper.date,
+      name: ResearchPaper.name,
+      email: ResearchPaper.email,
+    };
+    console.log(obj);
+
+    axios
+      .post(
+        "http://localhost:5000/api/ApprovedResearcher/insertApprovedResearcher",
+        obj
+      )
+      .then((response) => {
+        console.log(obj);
+
+        if (response.data.success) {
+          alert("sucessfully approved ");
+        } else {
+          alert("sucessfully not approved");
+        }
+      });
+  };
+
   return (
     <div>
       <div className="container">
@@ -41,7 +66,11 @@ export default function ResearchPaperTable() {
           <br />
           <div
             className="shadow p-5"
-            style={{ width: "75rem", marginLeft: "0px" }}
+            style={{
+              width: "70rem",
+              marginLeft: "0px",
+              backgroundColor: "#F0F8FF",
+            }}
           >
             <table className="table table-striped">
               <thead className="table-active">
@@ -70,7 +99,10 @@ export default function ResearchPaperTable() {
                   </td>
 
                   <td>
-                    <button className="btn btn-warning btn-sm">
+                    <button
+                      className="btn btn-warning btn-sm"
+                      onClick={() => onSubmit(ResearchPaper)}
+                    >
                       <i className="fas fa-edit"></i> Approve
                     </button>
                   </td>
@@ -80,7 +112,6 @@ export default function ResearchPaperTable() {
                       <i className="fas fa-trash"></i> Decline
                     </button>
                   </td>
-
                 </tr>
               ))}
             </table>
