@@ -4,11 +4,13 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const path = require("path");
 const app = express();
+
 var fileUpload = require('express-fileupload');
 const conferenceRoute=require('./routes/conference-route');
 const researcherRoute = require('./routes/researcher-route');
 const workshopRoute = require('./routes/workshopPresenter-route');
-
+const accountRoute = require('./routes/research-payment-route');
+const viewconferenceRoute = require('./routes/viewconferencedetails-route');
 const researcherRoute = require('./routes/researcher-route');
 const attendeePaymentRoute = require('./routes/attendeePayment-route');
 const workshopProposalRoute = require('./routes/workshopProposal-route');
@@ -58,10 +60,28 @@ app.use('/api/ApprovedProposals',ApprovedProposalsRoute);
 
 
 
+//kaveena
+//app.use('/api/payment',attendeePaymentRoute);
+app.use('/api/workshopProposal',workshopProposalRoute);
+app.use('/api/researchPaper',researchPaperRoute);
+app.use('/api/retrieve', require('./routes/retrieveeditordetails-route'));
+app.use('/api/inserteditordetails', require('./routes/inserteditordetails-route'));
+app.use('/api/getinserteditordetails', require('./routes/getinserteditordetails-route'));
+
+
+
 //nethmi
-app.use('/api/account', require('./routes/account-route'));
+app.use('/api/account', accountRoute);
+app.use('/api/retrieve', viewconferenceRoute);
+app.use('/api/inserteditordetails', require('./routes/inserteditordetails-route'));
+app.use('/api/getinserteditordetails', require('./routes/approved-conferencedetails-route'));
+app.use('/api/conference', require('./routes/retrieveeditordata-route'));
 
 
+
+
+//nirasha
+app.use('/api/documentUpload', require('./routes/documentUpload-route'));
 
 
 
@@ -70,7 +90,6 @@ app.use('/api/account', require('./routes/account-route'));
 //nirasha
 app.use('/api/researcher', researcherRoute);
 app.use('/api/workshop', workshopRoute);
-
 
 
 //DB config
