@@ -11,8 +11,7 @@ const researcherRoute = require('./routes/researcher-route');
 const workshopRoute = require('./routes/workshopPresenter-route');
 const accountRoute = require('./routes/research-payment-route');
 const viewconferenceRoute = require('./routes/viewconferencedetails-route');
-const researcherRoute = require('./routes/researcher-route');
-const attendeePaymentRoute = require('./routes/attendeePayment-route');
+const attendeePaymentRoute = require('./routes/payment-route');
 const workshopProposalRoute = require('./routes/workshopProposal-route');
 const researchPaperRoute = require('./routes/researchPaper-route');
 const ApprovedResearcherRoute = require('./routes/approvedResearches-route');
@@ -57,34 +56,12 @@ app.use('/api/researchPaper',researchPaperRoute);
 app.use('/api/ApprovedResearcher',ApprovedResearcherRoute);
 app.use('/api/ApprovedProposals',ApprovedProposalsRoute);
 
-
-
-
-//kaveena
-//app.use('/api/payment',attendeePaymentRoute);
-app.use('/api/workshopProposal',workshopProposalRoute);
-app.use('/api/researchPaper',researchPaperRoute);
-app.use('/api/retrieve', require('./routes/retrieveeditordetails-route'));
-app.use('/api/inserteditordetails', require('./routes/inserteditordetails-route'));
-app.use('/api/getinserteditordetails', require('./routes/getinserteditordetails-route'));
-
-
-
 //nethmi
 app.use('/api/account', accountRoute);
 app.use('/api/retrieve', viewconferenceRoute);
 app.use('/api/inserteditordetails', require('./routes/inserteditordetails-route'));
 app.use('/api/getinserteditordetails', require('./routes/approved-conferencedetails-route'));
 app.use('/api/conference', require('./routes/retrieveeditordata-route'));
-
-
-
-
-//nirasha
-app.use('/api/documentUpload', require('./routes/documentUpload-route'));
-
-
-
 
 
 //nirasha
