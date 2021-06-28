@@ -1,9 +1,6 @@
 import React from 'react';
-<<<<<<< Updated upstream
-import './App.css';
 import {BrowserRouter as Router, Route} from 'react-router-dom'
 
-import AttendeePayment from './components/attendee-payment-component/attendee-payment-component';
 import Approve from './components/Approving-component/approving';
 import Create from './components/create-component/create';
 import Edit from './components/edit-component/edit';
@@ -13,22 +10,16 @@ import DocumentUpload from './components/document-upload-component/DocumentUploa
 import Data from './components/retrieveeditordata-component/fetcheditordata';
 import Index1 from './components/retrieveeditordetailstable-component/fetcheditortable';
 import Index2 from './components/getinserteditordetailstable-component/getinsertdetailstable';
-
-=======
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-import Approve from './components/researcher-payment-component/payment';
 import Getdetails from './components/viewconference-component/viewconference';
 import ApproGeteditordetails from './components/approved-conferencedetails-component/approved';
->>>>>>> Stashed changes
+import DocumentUpload from './components/document-upload-component/DocumentUpload';
+import AttendeePayment from './components/attendee-payment-component/Payment';
+import ResearchPaperTable from './components/researchpapers-reviewer-component/ViewResearches';
+import WorkshopProposalsTable from './components/workshopproposals-reviewer-component/ViewProposals';
 
 function App() {
   return (
-
     <Router>
-<<<<<<< Updated upstream
-      
-      {/* //kaveena */}
-      <Route exact path="/attendee-payment-component" component={AttendeePayment} />
 
 
       {/* //nethmi     */}
@@ -37,24 +28,20 @@ function App() {
       <Route exact path = '/fetch' component = {Data} />
       <Route exact path = '/retrieve' component = {Index1} />
       <Route exact path = '/took' component = {Index2} />
-
-=======
-   
-        
-
-
-      {/* //nethmi*/}
       <Route  path="/account" component={Approve} />
       <Route  path="/retrieves" component={Getdetails} />
       <Route  path="/insert" component={ApproGeteditordetails} />
->>>>>>> Stashed changes
-    </Router>
+
+      {/* nirasha */}
+      <Route path='/documentUpload' component={DocumentUpload} />
     
+      {/* //kaveena */}
+      <Route  path="/attendeePayment" component={AttendeePayment} />
+      <Route  path="/researchPapers" component={ResearchPaperTable} />
+      <Route  path="/workshopProposals" component={WorkshopProposalsTable} />
+
+    </Router>
   );
 }
-
-
-
-
 
 export default App;
