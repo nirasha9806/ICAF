@@ -4,7 +4,6 @@ import axios from "axios";
 import "../../css/Papers.css";
 
 export default function WorkshopProposalsTable() {
-  
   const [workshopproposals, setWorkshopProposals] = useState([]); //gonna one item
 
   //get the all workshopproposals from database
@@ -14,6 +13,7 @@ export default function WorkshopProposalsTable() {
       console.log(proposal);
       res.data.forEach((item) => {
         let obj = {
+          id: item._id,
           name: item.name,
           email: item.email,
           title: item.proposal.title,
@@ -24,6 +24,17 @@ export default function WorkshopProposalsTable() {
       setWorkshopProposals(proposal);
     });
   }, []);
+
+  //Delete Method
+  const Delete = (id) => {
+    console.log(id);
+    axios
+      .post("http://localhost:5000/api/workshopProposal/delete/" + id)
+      .then((response) => {
+        alert("Successfully Deleted !");
+        window.location = "/workshopProposals";
+      });
+  };
 
   const onSubmit = (WorkshopProposal) => {
     const obj = {
@@ -85,9 +96,9 @@ export default function WorkshopProposalsTable() {
 
               {workshopproposals.map((WorkshopProposal) => (
                 <tr>
-                  <td>{WorkshopProposal.paperTitle}</td>
+                  <td>{WorkshopProposal.title}</td>
                   <td>{WorkshopProposal.date}</td>
-                  <td>{WorkshopProposal.authorName}</td>
+                  <td>{WorkshopProposal.name}</td>
                   <td>{WorkshopProposal.email}</td>
 
                   <td>
@@ -99,14 +110,17 @@ export default function WorkshopProposalsTable() {
                   <td>
                     <button
                       className="btn btn-warning btn-sm"
-                      onClick={() => onSubmit(ResearchPaper)}
+                      onClick={() => onSubmit(WorkshopProposal)}
                     >
                       <i className="fas fa-edit"></i> Approve
                     </button>
                   </td>
 
                   <td>
-                    <button className="btn btn-danger btn-sm">
+                    <button
+                      className="btn btn-danger btn-sm"
+                      onClick={() => Delete(WorkshopProposal.id)}
+                    >
                       <i className="fas fa-trash"></i> Decline
                     </button>
                   </td>
