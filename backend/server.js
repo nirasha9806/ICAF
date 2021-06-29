@@ -4,10 +4,9 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const path = require("path");
 const app = express();
+
 var fileUpload = require('express-fileupload');
 const conferenceRoute=require('./routes/conference-route');
-<<<<<<< Updated upstream
-=======
 const researcherRoute = require('./routes/researcher-route');
 const workshopRoute = require('./routes/workshopPresenter-route');
 const accountRoute = require('./routes/research-payment-route');
@@ -18,7 +17,6 @@ const researchPaperRoute = require('./routes/researchPaper-route');
 const ApprovedResearcherRoute = require('./routes/approvedResearches-route');
 const ApprovedProposalsRoute = require('./routes/approvedProposals-route');
 const FileRoutes = require('./routes/fileUpload-route');
->>>>>>> Stashed changes
 
 app.use(cors());
 
@@ -35,28 +33,23 @@ app.use('/uploads', express.static('uploads'));
 
 
 //kaveena
-//'/api/payment' location
-app.use('/api/payment', require('./routes/payment-route'));
-
-
-
-
-
+app.use('/api/payment',attendeePaymentRoute);
+app.use('/api/workshopProposal',workshopProposalRoute);
+app.use('/api/researchPaper',researchPaperRoute);
+app.use('/api/ApprovedResearcher',ApprovedResearcherRoute);
+app.use('/api/ApprovedProposals',ApprovedProposalsRoute);
 
 //nethmi
-app.use('/api/account', require('./routes/account-route'));
-
-
-
-
-
+app.use('/api/account', accountRoute);
+app.use('/api/retrieve', viewconferenceRoute);
+app.use('/api/inserteditordetails', require('./routes/inserteditordetails-route'));
+app.use('/api/getinserteditordetails', require('./routes/approved-conferencedetails-route'));
+app.use('/api/conference', require('./routes/retrieveeditordata-route'));
 
 
 //nirasha
-app.use('/api/documentUpload', require('./routes/documentUpload-route'));
-
-
-
+app.use('/api/researcher', researcherRoute);
+app.use('/api/workshop', workshopRoute);
 
 
 //DB config

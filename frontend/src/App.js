@@ -1,20 +1,10 @@
 import React from 'react';
-import './App.css';
-import {BrowserRouter as Router, Route} from 'react-router-dom'
-//import 'bootstrap/dist/css/bootstrap.min.css';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
-import AttendeePayment from './components/attendee-payment-component/attendee-payment-component';
-import Approve from './components/Approving-component/approving';
-import Create from './components/create-component/create';
-import Edit from './components/edit-component/edit';
-import Index from './components/index-component/index';
-import Landing from './components/landing-component/landing';
-import FileUpload from './components/admin-fileUpload-component/fileUpload';
-import DocumentUpload from './components/document-upload-component/DocumentUpload';
+// nirasha
+import SignUpGenereal from './components/signup-component/SignUpGeneral';
 
 
-<<<<<<< Updated upstream
-=======
 
 
 // nethmi
@@ -38,6 +28,8 @@ import WorkshopProposalsTable from './components/workshopproposals-reviewer-comp
 
 
 
+
+
 // sanduni
 import AddConferenceDetails from "./components/conference-editor-component/AddConferenceDetails";
 import EditConferenceDetails from "./components/conference-editor-component/EditConferenceDetails";
@@ -49,34 +41,12 @@ import Home from './components/home-component/home';
 
 
 
->>>>>>> Stashed changes
+
 function App() {
   return (
-
     <Router>
-      {/* //kaveena */}
-      <Route exact path="/attendee-payment-component" component={AttendeePayment} />
-    
-    
-    
-    
-    
 
-      {/* //nethmi     */}
-      <Route exact path = '/approve' component = {Approve} />
-    
-<<<<<<< Updated upstream
-    
-    
-  
-    {/* //sanduni */}
-     <Route exact path='/create' component = {Create}/>
-     <Route exact path='/edit/:id' component = {Edit}/>
-     <Route exact path='/index' component = {Index}/>
-     <Route exact path='/landing' component = {Landing}/>
-     <Route exact path='/uploads' component = {FileUpload}/>
 
-=======
       {/* //kaveena */}
       <Route  path="/attendeePayment" component={AttendeePayment} />
       <Route  path="/researchPapers" component={ResearchPaperTable} />
@@ -92,18 +62,30 @@ function App() {
       <Route exact path='/getConferenceDetails' component = {GetConferenceDetails}/>
       <Route exact path='/home' component = {Home}/>
       <Route exact path='/uploads' component = {FileUpload}/>
->>>>>>> Stashed changes
 
 
 
 
-     {/* nirasha */}
-     <Route path='/documentUpload' component={DocumentUpload}/>
+      {/* nirasha */}
+      <Route path='/signup' component={SignUpGenereal} />
+
+
+
+
+
+    
+      {/* //kaveena */}
+      <Route  path="/attendeePayment" component={AttendeePayment} />
+      <Route  path="/researchPapers" component={ResearchPaperTable} />
+      <Route  path="/workshopProposals" component={WorkshopProposalsTable} />
+
+
+
+
+
+
 
     </Router>
-    
-    
-
   );
 }
 
