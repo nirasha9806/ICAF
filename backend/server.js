@@ -6,6 +6,19 @@ const path = require("path");
 const app = express();
 var fileUpload = require('express-fileupload');
 const conferenceRoute=require('./routes/conference-route');
+<<<<<<< Updated upstream
+=======
+const researcherRoute = require('./routes/researcher-route');
+const workshopRoute = require('./routes/workshopPresenter-route');
+const accountRoute = require('./routes/research-payment-route');
+const viewconferenceRoute = require('./routes/viewconferencedetails-route');
+const attendeePaymentRoute = require('./routes/payment-route');
+const workshopProposalRoute = require('./routes/workshopProposal-route');
+const researchPaperRoute = require('./routes/researchPaper-route');
+const ApprovedResearcherRoute = require('./routes/approvedResearches-route');
+const ApprovedProposalsRoute = require('./routes/approvedProposals-route');
+const FileRoutes = require('./routes/fileUpload-route');
+>>>>>>> Stashed changes
 
 app.use(cors());
 
@@ -17,26 +30,8 @@ app.use(bodyParser.json());
 //sanduni
 // conference route
 app.use('/conference',conferenceRoute);
-
-// file upload
-app.use(fileUpload());
-
-app.post('/upload',(req,res)=>{
-    if(req.files===null){
-        return res.status(400).json({msg: 'No file uploaded'});
-
-    }
-    const file = req.files.file;
-    file.mv('${__dirname}/ICAF/frontend/public/uploads/${file.name}', err=>{
-        if(err){
-            consile.error(err);
-            res.status(500).send(err);
-        }
-        res.json({fileName: file.name, filePath: '/uploads/${file.name}'});
-    });
-}) 
-
-
+app.use('/template', FileRoutes);
+app.use('/uploads', express.static('uploads'));
 
 
 //kaveena
