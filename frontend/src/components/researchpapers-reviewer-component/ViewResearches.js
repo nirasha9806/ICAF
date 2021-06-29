@@ -15,6 +15,7 @@ export default function ResearchPaperTable() {
       console.log(researchPaper);
       res.data.forEach((item) => {
         let obj = {
+          id: item._id,
           name: item.name,
           email: item.email,
           title: item.researchPaper.title,
@@ -26,6 +27,17 @@ export default function ResearchPaperTable() {
       setResearchPapers(researchPaper);
     });
   }, []);
+
+  //Delete Method
+  const Delete = (id) => {
+    console.log(id);
+    axios
+      .post("http://localhost:5000/api/researchPaper/delete/" + id)
+      .then((response) => {
+        alert("Successfully Deleted !");
+        window.location='/researchPapers';
+      });
+  };
 
   const onSubmit = (ResearchPaper) => {
     const obj = {
@@ -45,7 +57,7 @@ export default function ResearchPaperTable() {
         console.log(obj);
 
         if (response.data.success) {
-          alert("sucessfully approved ");
+          alert("sucessfully approved");
         } else {
           alert("sucessfully not approved");
         }
@@ -108,7 +120,10 @@ export default function ResearchPaperTable() {
                   </td>
 
                   <td>
-                    <button className="btn btn-danger btn-sm">
+                    <button
+                      className="btn btn-danger btn-sm"
+                      onClick={() => Delete(ResearchPaper.id)}
+                    >
                       <i className="fas fa-trash"></i> Decline
                     </button>
                   </td>
