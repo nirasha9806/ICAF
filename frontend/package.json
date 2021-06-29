@@ -1,7 +1,24 @@
 {
   "name": "frontend",
+<<<<<<< Updated upstream
   "version": "0.1.0",
   "private": true,
+=======
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "start": "parcel index.html --open"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^27.0.6",
+    "parcel-bundler": "^1.12.5"
+  },
+>>>>>>> Stashed changes
   "dependencies": {
     "@coreui/react": "^3.4.6",
     "@testing-library/jest-dom": "^5.12.0",
