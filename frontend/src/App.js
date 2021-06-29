@@ -28,7 +28,14 @@ import WorkshopProposalsTable from './components/workshopproposals-reviewer-comp
 
 
 
+
+
 // sanduni
+import AddConferenceDetails from "./components/conference-editor-component/AddConferenceDetails";
+import EditConferenceDetails from "./components/conference-editor-component/EditConferenceDetails";
+import GetConferenceDetails from "./components/conference-editor-component/GetConfereneceDetails";
+import FileUpload from "./components/admin-fileUpload-component/admin-fileUpload";
+import Home from './components/home-component/home';
 
 
 
@@ -40,13 +47,21 @@ function App() {
     <Router>
 
 
-      {/* //nethmi     */}
-      <Route exact path = '/fetch' component = {Data} />
-      <Route exact path = '/retrieve' component = {Index1} />
-      <Route exact path = '/took' component = {Index2} />
-      <Route  path="/retrieves" component={Getdetails} />
-      <Route  path="/insert" component={ApproGeteditordetails} />
+      {/* //kaveena */}
+      <Route  path="/attendeePayment" component={AttendeePayment} />
+      <Route  path="/researchPapers" component={ResearchPaperTable} />
+      <Route  path="/workshopProposals" component={WorkshopProposalsTable} />
 
+
+
+
+
+      {/* sanduni */}
+      <Route exact path='/addConferenceDetails' component = {AddConferenceDetails}/>
+      <Route exact path='/edit/:id' component = {EditConferenceDetails}/>
+      <Route exact path='/getConferenceDetails' component = {GetConferenceDetails}/>
+      <Route exact path='/home' component = {Home}/>
+      <Route exact path='/uploads' component = {FileUpload}/>
 
 
 
@@ -63,12 +78,6 @@ function App() {
       <Route  path="/attendeePayment" component={AttendeePayment} />
       <Route  path="/researchPapers" component={ResearchPaperTable} />
       <Route  path="/workshopProposals" component={WorkshopProposalsTable} />
-
-
-
-
-
-      {/* sanduni */}
 
 
 
