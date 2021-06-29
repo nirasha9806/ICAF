@@ -2,7 +2,7 @@ const { Researcher } = require('../models/researcher-model');
 const bcrypt = require('bcrypt');
 
 const SignUp = async (req, res, next) => {
-  const { name, email, password, phone, title, date, url } = req.body;
+  const { name, email, phone, password, title, date, url } = req.body;
   Researcher.find({ email: email })
     .exec()
     .then((researcher) => {

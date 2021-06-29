@@ -1,8 +1,8 @@
 import React from 'react';
-import {BrowserRouter as Router, Route} from 'react-router-dom'
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 // nirasha
-import DocumentUpload from './components/document-upload-component/DocumentUpload';
+import SignUpGenereal from './components/signup-component/SignUpGeneral';
 
 
 
@@ -52,7 +52,8 @@ function App() {
 
 
       {/* nirasha */}
-      <Route path='/documentUpload' component={DocumentUpload} />
+      <Route path='/signup' component={SignUpGenereal} />
+
 
 
 
@@ -68,6 +69,7 @@ function App() {
 
 
       {/* sanduni */}
+
 
 
 
