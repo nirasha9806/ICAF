@@ -8,11 +8,11 @@ import SignUpGenereal from './components/signup-component/SignUpGeneral';
 
 
 // nethmi
-import Data from './components/retrieveeditordata-component/fetcheditordata';
-import Index1 from './components/retrieveeditordetailstable-component/fetcheditortable';
-import Index2 from './components/getinserteditordetailstable-component/getinsertdetailstable';
-import Getdetails from './components/viewconference-component/viewconference';
+import Resercherpayment from './components/researcher-payment-component/payment';
+import GetDetails from './components/viewconference-component/viewconference';
 import ApproGeteditordetails from './components/approved-conferencedetails-component/approved';
+import ApprovedResearchpaperdetails from './components/viewresearchpaper-component/viewresearchpaper';
+import ApprovedProposaldetails from './components/viewproposal-component/viewproposal';
 
 
 
@@ -46,16 +46,6 @@ function App() {
   return (
     <Router>
 
-
-      {/* //kaveena */}
-      <Route  path="/attendeePayment" component={AttendeePayment} />
-      <Route  path="/researchPapers" component={ResearchPaperTable} />
-      <Route  path="/workshopProposals" component={WorkshopProposalsTable} />
-
-
-
-
-
       {/* sanduni */}
       <Route exact path='/addConferenceDetails' component = {AddConferenceDetails}/>
       <Route exact path='/edit/:id' component = {EditConferenceDetails}/>
@@ -82,8 +72,12 @@ function App() {
 
 
 
-
-
+      {/* //nethmi */}
+      <Route  path="/account" component={Resercherpayment} />
+      <Route  path="/retrieves" component={GetDetails} />
+      <Route  path="/insert" component={ApproGeteditordetails} />
+      <Route  path="/researchpaper" component={ApprovedResearchpaperdetails} />
+      <Route  path="/proposal" component={ApprovedProposaldetails} />
 
     </Router>
   );

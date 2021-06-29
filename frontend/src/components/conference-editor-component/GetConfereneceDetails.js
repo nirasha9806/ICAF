@@ -1,10 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-<<<<<<< Updated upstream
-import TableRow from '../tableRow-component/TableRow';
-=======
-import TableRow from '../EditorTableRow-component/TableRow';
->>>>>>> Stashed changes
+// import TableRow from '../EditorTableRow-component/TableRow';
 import { Link } from 'react-router-dom';
 
 export default class GetConfereneceDetails extends Component{
@@ -25,7 +21,7 @@ export default class GetConfereneceDetails extends Component{
         }
         tabRow(){
             return this.state.conference.map(function(object,i){
-                return <TableRow obj={object} key = {i}/>;
+                // return <TableRow obj={object} key = {i}/>;
             });
         }
     

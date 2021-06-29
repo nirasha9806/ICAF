@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { CModal, CModalTitle, CButton } from '@coreui/react';
 import axios from 'axios';
-export default function Modal(props) {
+export default function PModal(props) {
   const { title, openPopup, setOpenPopup } = props;
 
   const [name, setName] = useState(' ');
@@ -41,9 +41,9 @@ export default function Modal(props) {
   };
 
   const onSubmit = () => {
-    // if(selectedFile === null){
-    //   alert("Please upload the research paper");
-    // }
+    if (selectedFile === null) {
+      alert('Please upload the workshop proposal');
+    }
 
     let formdata = new FormData();
     formdata.append('name', name);
@@ -53,10 +53,9 @@ export default function Modal(props) {
     formdata.append('title', pTitle);
     formdata.append('date', date);
     formdata.append('file', selectedFile, selectedFile.name);
-    console.log(formdata);
 
     axios
-      .post('http://localhost:5000/api/researcher/signup', formdata)
+      .post('http://localhost:5000/api/workshop/signup', formdata)
       .then((res) => {
         alert(res.data.message);
       })
@@ -68,12 +67,12 @@ export default function Modal(props) {
   return (
     <CModal show={openPopup} closeOnBackdrop={false}>
       <CButton
-          className="btn-sm"
-          color="secondary"
-          onClick={() => setOpenPopup(false)}
-        >
-          X
-        </CButton>
+        className='btn-sm'
+        color='secondary'
+        onClick={() => setOpenPopup(false)}
+      >
+        X
+      </CButton>
       <div class='form-group w-25' className='shadow p-5'>
         <center>
           <CModalTitle>{title}</CModalTitle>
@@ -151,16 +150,19 @@ export default function Modal(props) {
         </div>
 
         <div>
-          <label>Choose File: </label>{' '}
+          <label>Upload Proposal: </label>{' '}
           <input type='file' onChange={(e) => fileSelectedHandler(e)} />
           <br />
           <br />
         </div>
 
         <center>
-        <div className='form-group'>
-          <span> </span> <button className='btn btn-dark' onClick={()=>onSubmit()}>Sign Up </button>
-        </div>
+          <div className='form-group'>
+            <span> </span>{' '}
+            <button className='btn btn-dark' onClick={() => onSubmit()}>
+              Sign Up{' '}
+            </button>
+          </div>
         </center>
       </div>
     </CModal>

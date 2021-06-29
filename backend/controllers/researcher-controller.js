@@ -3,6 +3,7 @@ const bcrypt = require('bcrypt');
 
 const SignUp = async (req, res, next) => {
   const { name, email, phone, password, title, date, url } = req.body;
+  console.log(req.body.name);
   Researcher.find({ email: email })
     .exec()
     .then((researcher) => {
