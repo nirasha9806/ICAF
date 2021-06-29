@@ -1,12 +1,12 @@
-const { Researcher } = require('../models/researcher-model');
+const { WorkshopPresenter } = require('../models/workshopPresenter-model');
 const bcrypt = require('bcrypt');
 
 const SignUp = async (req, res, next) => {
-  const { name, email, phone, password, title, date, url } = req.body;
-  Researcher.find({ email: email })
+  const { name, email, password, phone, title, date, url } = req.body;
+  WorkshopPresenter.find({ email: email })
     .exec()
-    .then((researcher) => {
-      if (researcher.length >= 1) {
+    .then((workshopPresenter) => {
+      if (workshopPresenter.length >= 1) {
         return res.status(200).json({
           message: 'Email is already used. Please try again.',
         });
@@ -17,18 +17,18 @@ const SignUp = async (req, res, next) => {
               error: err,
             });
           } else {
-            const researcher = new Researcher({
+            const workshopPresenter = new WorkshopPresenter({
               name: name,
               email: email,
               password: hash,
               phone: phone,
-              researchPaper: {
+              proposal: {
                 title: title,
                 date: date,
                 url: 'jjj',
               },
             });
-            researcher
+            workshopPresenter
               .save()
               .then((result) => {
                 console.log(result);
