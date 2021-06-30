@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
+import emailjs from "emailjs-com";
 //import { Link } from 'react-router-dom';
 import axios from "axios";
 import "../../css/Papers.css";
 
 export default function WorkshopProposalsTable() {
-  
   const [workshopproposals, setWorkshopProposals] = useState([]); //gonna one item
 
   //get the all workshopproposals from database
@@ -14,6 +14,7 @@ export default function WorkshopProposalsTable() {
       console.log(proposal);
       res.data.forEach((item) => {
         let obj = {
+          id: item._id,
           name: item.name,
           email: item.email,
           title: item.proposal.title,
@@ -24,6 +25,17 @@ export default function WorkshopProposalsTable() {
       setWorkshopProposals(proposal);
     });
   }, []);
+
+  //Delete Method
+  const Delete = (id) => {
+    console.log(id);
+    axios
+      .post("http://localhost:5000/api/workshopProposal/delete/" + id)
+      .then((response) => {
+        alert("Successfully Deleted !");
+        window.location = "/workshopProposals";
+      });
+  };
 
   const onSubmit = (WorkshopProposal) => {
     const obj = {
@@ -50,6 +62,23 @@ export default function WorkshopProposalsTable() {
       });
   };
 
+  function sendEmail(e) {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        "service_l4g7ber",
+        "template_2gr78ck",
+        e.target,
+        "user_4L6ev1ZDXMBYB5Q3nYt1t"
+      )
+      .then((res) => {
+        console.log(res);
+        alert("Successfully Sent Email !");
+      })
+      .catch((err) => console.log(err));
+  }
+
   return (
     <div>
       <div className="container">
@@ -70,6 +99,32 @@ export default function WorkshopProposalsTable() {
               backgroundColor: "#F0F8FF",
             }}
           >
+            <form
+              className="row"
+              style={{ marginLeft: "300px", width: "25rem" }}
+              onSubmit={sendEmail}
+            >
+              <input
+                style={{ width: "25rem" }}
+                type="email"
+                class="form-control"
+                name="user_email"
+                placeholder="abc@gmail.com"
+              />
+              <input
+                className="btn btn-primary btn-sm"
+                type="submit"
+                value="Send Email"
+                style={{
+                  marginLeft: "125px",
+                  marginTop: "20px",
+                  width: "10rem",
+                }}
+              />
+            </form>
+
+            <br />
+
             <table className="table table-striped">
               <thead className="table-active">
                 <tr>
@@ -85,9 +140,9 @@ export default function WorkshopProposalsTable() {
 
               {workshopproposals.map((WorkshopProposal) => (
                 <tr>
-                  <td>{WorkshopProposal.paperTitle}</td>
+                  <td>{WorkshopProposal.title}</td>
                   <td>{WorkshopProposal.date}</td>
-                  <td>{WorkshopProposal.authorName}</td>
+                  <td>{WorkshopProposal.name}</td>
                   <td>{WorkshopProposal.email}</td>
 
                   <td>
@@ -99,14 +154,17 @@ export default function WorkshopProposalsTable() {
                   <td>
                     <button
                       className="btn btn-warning btn-sm"
-                      onClick={() => onSubmit(ResearchPaper)}
+                      onClick={() => onSubmit(WorkshopProposal)}
                     >
                       <i className="fas fa-edit"></i> Approve
                     </button>
                   </td>
 
                   <td>
-                    <button className="btn btn-danger btn-sm">
+                    <button
+                      className="btn btn-danger btn-sm"
+                      onClick={() => Delete(WorkshopProposal.id)}
+                    >
                       <i className="fas fa-trash"></i> Decline
                     </button>
                   </td>

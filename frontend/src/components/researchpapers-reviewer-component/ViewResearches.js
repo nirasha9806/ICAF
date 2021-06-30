@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import emailjs from "emailjs-com";
 //import { Link } from 'react-router-dom';
 import axios from "axios";
 import "../../css/Papers.css";
@@ -15,6 +16,7 @@ export default function ResearchPaperTable() {
       console.log(researchPaper);
       res.data.forEach((item) => {
         let obj = {
+          id: item._id,
           name: item.name,
           email: item.email,
           title: item.researchPaper.title,
@@ -26,6 +28,17 @@ export default function ResearchPaperTable() {
       setResearchPapers(researchPaper);
     });
   }, []);
+
+  //Delete Method
+  const Delete = (id) => {
+    console.log(id);
+    axios
+      .post("http://localhost:5000/api/researchPaper/delete/" + id)
+      .then((response) => {
+        alert("Successfully Deleted !");
+        window.location = "/researchPapers";
+      });
+  };
 
   const onSubmit = (ResearchPaper) => {
     const obj = {
@@ -45,12 +58,29 @@ export default function ResearchPaperTable() {
         console.log(obj);
 
         if (response.data.success) {
-          alert("sucessfully approved ");
+          alert("sucessfully approved");
         } else {
           alert("sucessfully not approved");
         }
       });
   };
+
+  function sendEmail(e) {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        "service_l4g7ber",
+        "template_l0itd1s",
+        e.target,
+        "user_4L6ev1ZDXMBYB5Q3nYt1t"
+      )
+      .then((res) => {
+        console.log(res);
+        alert("Successfully Sent Email !");
+      })
+      .catch((err) => console.log(err));
+  }
 
   return (
     <div>
@@ -72,6 +102,32 @@ export default function ResearchPaperTable() {
               backgroundColor: "#F0F8FF",
             }}
           >
+            <form
+              className="row"
+              style={{ marginLeft: "300px", width: "25rem" }}
+              onSubmit={sendEmail}
+            >
+              <input
+                style={{ width: "25rem" }}
+                type="email"
+                class="form-control"
+                name="user_email"
+                placeholder="abc@gmail.com"
+              />
+              <input
+                className="btn btn-primary btn-sm"
+                type="submit"
+                value="Send Email"
+                style={{
+                  marginLeft: "125px",
+                  marginTop: "20px",
+                  width: "10rem",
+                }}
+              />
+            </form>
+
+            <br />
+
             <table className="table table-striped">
               <thead className="table-active">
                 <tr>
@@ -108,7 +164,10 @@ export default function ResearchPaperTable() {
                   </td>
 
                   <td>
-                    <button className="btn btn-danger btn-sm">
+                    <button
+                      className="btn btn-danger btn-sm"
+                      onClick={() => Delete(ResearchPaper.id)}
+                    >
                       <i className="fas fa-trash"></i> Decline
                     </button>
                   </td>

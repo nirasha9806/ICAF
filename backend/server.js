@@ -8,15 +8,17 @@ const app = express();
 var fileUpload = require('express-fileupload');
 const conferenceRoute=require('./routes/conference-route');
 const researcherRoute = require('./routes/researcher-route');
+const attendeeRoute = require('./routes/attendee-route');
 const workshopRoute = require('./routes/workshopPresenter-route');
 const accountRoute = require('./routes/research-payment-route');
 const viewconferenceRoute = require('./routes/viewconferencedetails-route');
-const researcherRoute = require('./routes/researcher-route');
-const attendeePaymentRoute = require('./routes/attendeePayment-route');
+const attendeePaymentRoute = require('./routes/payment-route');
 const workshopProposalRoute = require('./routes/workshopProposal-route');
 const researchPaperRoute = require('./routes/researchPaper-route');
 const ApprovedResearcherRoute = require('./routes/approvedResearches-route');
 const ApprovedProposalsRoute = require('./routes/approvedProposals-route');
+const FileRoutes = require('./routes/fileUpload-route');
+const loginRoute =  require('./routes/login-route');
 
 app.use(cors());
 
@@ -28,26 +30,8 @@ app.use(bodyParser.json());
 //sanduni
 // conference route
 app.use('/conference',conferenceRoute);
-
-// file upload
-app.use(fileUpload());
-
-app.post('/upload',(req,res)=>{
-    if(req.files===null){
-        return res.status(400).json({msg: 'No file uploaded'});
-
-    }
-    const file = req.files.file;
-    file.mv('${__dirname}/ICAF/frontend/public/uploads/${file.name}', err=>{
-        if(err){
-            consile.error(err);
-            res.status(500).send(err);
-        }
-        res.json({fileName: file.name, filePath: '/uploads/${file.name}'});
-    });
-}) 
-
-
+app.use('/template', FileRoutes);
+app.use('/uploads', express.static('uploads'));
 
 
 //kaveena
@@ -56,19 +40,6 @@ app.use('/api/workshopProposal',workshopProposalRoute);
 app.use('/api/researchPaper',researchPaperRoute);
 app.use('/api/ApprovedResearcher',ApprovedResearcherRoute);
 app.use('/api/ApprovedProposals',ApprovedProposalsRoute);
-
-
-
-
-//kaveena
-//app.use('/api/payment',attendeePaymentRoute);
-app.use('/api/workshopProposal',workshopProposalRoute);
-app.use('/api/researchPaper',researchPaperRoute);
-app.use('/api/retrieve', require('./routes/retrieveeditordetails-route'));
-app.use('/api/inserteditordetails', require('./routes/inserteditordetails-route'));
-app.use('/api/getinserteditordetails', require('./routes/getinserteditordetails-route'));
-
-
 
 //nethmi
 app.use('/api/account', accountRoute);
@@ -79,18 +50,11 @@ app.use('/api/viewapprovedresearchpaper', require('./routes/viewresearchpaper-ro
 app.use('/api/viewapprovedproposal', require('./routes/viewproposal-route'));
 
 
-
-
-//nirasha
-app.use('/api/documentUpload', require('./routes/documentUpload-route'));
-
-
-
-
-
 //nirasha
 app.use('/api/researcher', researcherRoute);
 app.use('/api/workshop', workshopRoute);
+app.use('/api/attendee', attendeeRoute);
+app.use('/api/login', loginRoute);
 
 
 //DB config

@@ -16,5 +16,14 @@ const ViewResearchPaper = async(req,res,next)=>{
     });
 }
 
+//delete method
+const deleteResearchPaper = async (req, res) => {
+    await Researcher.deleteOne({ _id: req.params.id }, function (err, Researcher) {
+      if (err) res.json(err);
+      else res.json("Successfully Deleted");
+    });
+  };
+
 
 exports.ViewResearchPaper=ViewResearchPaper;
+exports.deleteResearchPaper=deleteResearchPaper;

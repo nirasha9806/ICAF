@@ -1,12 +1,13 @@
-const { WorkshopPresenter } = require('../models/workshopPresenter-model');
+const { Attendee } = require('../models/attendee-model');
 const bcrypt = require('bcrypt');
 
 const SignUp = async (req, res, next) => {
-  const { name, email, password, phone, title, date, url } = req.body;
-  WorkshopPresenter.find({ email: email })
+  const { name, email, phone, password } = req.body;
+ 
+  Attendee.find({ email: email })
     .exec()
-    .then((workshopPresenter) => {
-      if (workshopPresenter.length >= 1) {
+    .then((attendee) => {
+      if (attendee.length >= 1) {
         return res.status(200).json({
           message: 'Email is already used. Please try again.',
         });
@@ -17,18 +18,13 @@ const SignUp = async (req, res, next) => {
               error: err,
             });
           } else {
-            const workshopPresenter = new WorkshopPresenter({
+            const attendee = new Attendee({
               name: name,
               email: email,
               password: hash,
               phone: phone,
-              proposal: {
-                title: title,
-                date: date,
-                url: 'https://firebasestorage.googleapis.com/v0/b/icaf-project.appspot.com/o/documents%2FY3.S2.WE.SE.36.02.pdf?alt=media&token=ad1151b0-9742-4a2f-af0c-f2282f81a4f2',
-              },
             });
-            workshopPresenter
+            attendee
               .save()
               .then((result) => {
                 console.log(result);

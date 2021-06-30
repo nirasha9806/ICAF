@@ -1,7 +1,7 @@
 const mongoose= require('mongoose');
 const Schema = mongoose.Schema;
 
-const insertdetailsSchema =  mongoose.Schema({
+const ConferenceSchema =  mongoose.Schema({
     research_name : {
         type:String
     },
@@ -13,6 +13,6 @@ const insertdetailsSchema =  mongoose.Schema({
     }
 },{timesamps:true})
 
-const EditorDetails = mongoose.model('EditorDetails', insertdetailsSchema);
+const Conference = mongoose.model('Conference', ConferenceSchema);
 
-module.exports = {EditorDetails}
+module.exports = {Conference}
