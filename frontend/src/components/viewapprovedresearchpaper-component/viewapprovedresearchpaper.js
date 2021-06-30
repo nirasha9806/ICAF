@@ -4,21 +4,21 @@ import axios from 'axios';
 
 
 
-export default function ApprovedProposaldetails() { //implemented class component
+export default function ApprovedReserchpaperdetails() { //implemented class component
 
 
   
 
-  const [approvedProposals, setApprovedProposals] = useState([]) //gonna one item
+  const [approvedResearches, setApprovedResearches] = useState([]) //gonna one item
 
     //get the all workshopproposals from database
     useEffect(() => {
      
       axios
-        .get('http://localhost:5000/api/viewproposal')
+        .get('http://localhost:5000/api/viewapprovedresearchpaper')
         .then((res) => {
-           const approvedProposals = res.data;
-           setApprovedProposals(approvedProposals);
+           const approvedResearches = res.data;
+           setApprovedResearches(approvedResearches);
         });
     }, []);
 
@@ -41,7 +41,7 @@ export default function ApprovedProposaldetails() { //implemented class componen
               <br/>
                 <h3 className = 'header2'>
                     <center>
-                        <b> Approved Proposal Details </b>
+                        <b> Approved Research Paper Details </b>
                     </center>
                 </h3>
 
@@ -54,20 +54,20 @@ export default function ApprovedProposaldetails() { //implemented class componen
                 <table className="table table-striped">
                 <thead className="table-active">
                     <tr>
+                    <th> Title</th>
+                    <th> Date </th>
                     <th> Name</th>
-                    <th> Email </th>
-                    <th> Password</th>
-                   
+                    <th> Email</th>
                     
                     </tr>
                 </thead>
 
-                {approvedProposals.map((ApprovedProposals) => (
+                {approvedResearches.map((ApprovedResearcher) => (
                   <tr>
-                    <td>{ApprovedProposals.name}</td>
-                    <td>{ApprovedProposals.email}</td>
-                    <td>{ApprovedProposals.password}</td>
-                    
+                    <td>{ApprovedResearcher.title}</td>
+                    <td>{ApprovedResearcher.date}</td>
+                    <td>{ApprovedResearcher.name}</td>
+                    <td>{ApprovedResearcher.email}</td>
                     
                     
 

@@ -78,7 +78,7 @@ export default function Geteditordetails() { //implemented class component
 
                     <td>
                       <button className="btn btn-danger" 
-                    onClick={() =>Delete(EditorDetails._id)}><i className="fas fa-edit"></i> Delete
+                    onClick={() =>Delete(EditorDetails._id)}><i className="fas fa-edit"></i> Decline
                       
                       </button>
                     </td>
