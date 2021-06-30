@@ -50,7 +50,7 @@ function App() {
       <Route exact path='/addConferenceDetails' component = {AddConferenceDetails}/>
       <Route exact path='/edit/:id' component = {EditConferenceDetails}/>
       <Route exact path='/getConferenceDetails' component = {GetConferenceDetails}/>
-      <Route exact path='/home' component = {Home}/>
+      <Route exact path='/' component = {Home}/>
       <Route exact path='/uploads' component = {FileUpload}/>
 
 
