@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 
-export default class AddConferenceDetails extends Component{
+export default class AddConferenceDetails extends Component{ // editor add conference details
 
     constructor(props){
         super(props);
@@ -38,21 +38,26 @@ export default class AddConferenceDetails extends Component{
             author_name : this.state.author_name,
             research_Type : this.state.research_Type
         };
-        axios.post('http://localhost:5000/conference/add',obj).then(res=>{alert("Successfull")});
+        axios.post('http://localhost:5000/conference/add',obj).then(res=>{alert("Successfull")}); // add the conference details to mongo db
         
         
     }
-
-
-
+// get the table structure for add conference details
 render(){
     return(
-        <div className="container">
+        <div>
+        <center>
+        <div
+     class='form-group w-25'
+     className='shadow p-5'
+     style={{ width: '45rem' }}
+   >     
         <div style={{marginTop:10}}>
-           <h3>Add Conference details </h3>
+          <h3> <center>Add Conference details </center></h3>
+          
              <form onSubmit={this.onsubmit}>
                  <div className="form-group">
-                     <label>Add Research Name : </label>
+                 <label>Conference Topic Name : </label>
                      <input type="text"
                             className="form-control"
                             value={this.state.research_name}
@@ -60,7 +65,7 @@ render(){
                  </div>
 
                  <div className="form-group">
-                     <label>Add Author Name : </label>
+                     <label>Author Name : </label>
                      <input type="text" 
                             className="form-control"
                             value={this.state.author_name}
@@ -68,7 +73,7 @@ render(){
                  </div>
 
                  <div className="form-group">
-                     <label>Add Research Type : </label>
+                     <label> Conference Type : </label>
                      <input type="text" 
                            className="form-control"
                            value={this.state.research_Type}
@@ -76,13 +81,14 @@ render(){
                  </div>
 
                  <div className="form-group">
-                     <input type="submit" value="Register research" className="btn btn-primary"/>
+                     <input type="submit" value="Submit" className="btn btn-primary"/>
                  </div>
+                
              </form>
          </div>
          </div>
+         </center>
+</div>
     )
 }
-
-
 }

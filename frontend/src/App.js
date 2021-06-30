@@ -34,6 +34,7 @@ import WorkshopProposalsTable from './components/workshopproposals-reviewer-comp
 import AddConferenceDetails from "./components/conference-editor-component/AddConferenceDetails";
 import EditConferenceDetails from "./components/conference-editor-component/EditConferenceDetails";
 import GetConferenceDetails from "./components/conference-editor-component/GetConfereneceDetails";
+import AdminConferenceDetails from "./components/admin-view-conference-details/adminViewConferenceDetails";
 import FileUpload from "./components/admin-fileUpload-component/admin-fileUpload";
 import Home from './components/home-component/home';
 
@@ -51,6 +52,7 @@ function App() {
       <Route exact path='/edit/:id' component = {EditConferenceDetails}/>
       <Route exact path='/getConferenceDetails' component = {GetConferenceDetails}/>
       <Route exact path='/' component = {Home}/>
+      <Route exact path='/adminConferenceDetails' component = {AdminConferenceDetails}/>
       <Route exact path='/uploads' component = {FileUpload}/>
 
 

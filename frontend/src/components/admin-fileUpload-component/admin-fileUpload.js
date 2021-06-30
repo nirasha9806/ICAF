@@ -3,7 +3,7 @@ import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
-export default function FileUpload() {
+export default function FileUpload() {  // Admin upload a file 
   const [itemtype, setItemType] = useState(' ');
   const [size, setSize] = useState(' ');
   const [selectedFile, setSelectedFile] = useState(null);
@@ -22,18 +22,14 @@ export default function FileUpload() {
   };
 
   const onSubmit = () => {
-    // let uid = window.sessionStorage.getItem('me');
     let formdata = new FormData();
     formdata.append('itemtype', itemtype);
     formdata.append('size', size);
     formdata.append('image', selectedFile, selectedFile.name);
-    // formdata.append('uId', uid);
-
-    // console.log(window.sessionStorage.getItem('token'));
     console.log(itemtype);
 
     axios
-      .post('http://localhost:5000/template/add', formdata)
+      .post('http://localhost:5000/template/add', formdata) // upload the file and add to the template collection in mongo db
       .then((res) => {
         alert(res.data.message);
       })
@@ -42,7 +38,7 @@ export default function FileUpload() {
       });
   };
 
-  return (
+  return (  // get the structure of uploding a file
     <div>
         <center>
         <div
@@ -53,9 +49,7 @@ export default function FileUpload() {
           <h3>
             <center>Add Templates</center>
           </h3>
-
           <br></br>
-
           <div>
             <br />
             <br />
