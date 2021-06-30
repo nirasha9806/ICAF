@@ -7,14 +7,14 @@ import TableRow from '../EditorTableRow-component/TableRow';
 >>>>>>> Stashed changes
 import { Link } from 'react-router-dom';
 
-export default class GetConfereneceDetails extends Component{
+export default class GetConferenceDetails extends Component{ // get editor conference details in this component
   
     constructor(props){
         super(props);
             this.state={conference : []};
         }
        componentDidMount(){
-            axios.get('http://localhost:5000/conference/index')
+            axios.get('http://localhost:5000/conference') // get the conference details from mongo db
              .then(response=>{
                  this.setState({conference : response.data});
 
@@ -28,34 +28,28 @@ export default class GetConfereneceDetails extends Component{
                 return <TableRow obj={object} key = {i}/>;
             });
         }
-    
-   
-   
-   
+//get the view of table  
     render(){
         return (
             <div className="container">
-
         <div>
             <h3 align="center"> Event List</h3>
             <div
                   className='shadow p-6'
                   style={{ width: '75rem', marginLeft: '0px',backgroundColor:"#F0F8FF" }}
               ></div>
-            {/* <table className="table table-striped" style={{marginTop:20}}> */}
             <table class="table table-hover">
                 <thead className="table-active">
                     <tr>
-                    <th> Research Name</th>
+                    <th> Conference Topic Name</th>
                     <th> Author Name </th>
-                    <th> Research Type</th>
+                    <th> Conference Type</th>
                     <th> Action</th>
                     </tr>
                     </thead>
                 <tbody>
                     {this.tabRow()}
                 </tbody>
-            {/* </table> */}
             </table>
             <div>
                 <Link className="btn grey" to="/">Back</Link>
