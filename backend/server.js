@@ -46,8 +46,8 @@ app.use('/api/account', accountRoute);
 app.use('/api/retrieve', viewconferenceRoute);
 app.use('/api/inserteditordetails', require('./routes/inserteditordetails-route'));
 app.use('/api/getinserteditordetails', require('./routes/approved-conferencedetails-route'));
-app.use('/api/viewresearchpaper', require('./routes/viewresearchpaper-route'));
-app.use('/api/viewproposal', require('./routes/viewproposal-route'));
+app.use('/api/viewapprovedresearchpaper', require('./routes/viewresearchpaper-route'));
+app.use('/api/viewapprovedproposal', require('./routes/viewproposal-route'));
 
 
 //nirasha
