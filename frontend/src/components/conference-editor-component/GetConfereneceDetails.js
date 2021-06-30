@@ -1,10 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-<<<<<<< Updated upstream
 import TableRow from '../tableRow-component/TableRow';
-=======
-import TableRow from '../EditorTableRow-component/TableRow';
->>>>>>> Stashed changes
 import { Link } from 'react-router-dom';
 
 export default class GetConferenceDetails extends Component{ // get editor conference details in this component

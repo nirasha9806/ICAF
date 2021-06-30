@@ -2,6 +2,10 @@ import React, {Component} from 'react';
 import '../../assets/style.css';
 
 export default class Home extends Component{
+    signup (){
+        window.location='/signup'
+    }
+
     render(){
         return(
             <div>
@@ -20,7 +24,7 @@ export default class Home extends Component{
                             <li>SERVICE</li>
                             <li>ABOUT</li>
                             <li>CONTACT</li>
-                            <li>HELP</li>
+                            <li><button onClick={()=>this.signup()}>Sign Up</button></li>
                         </ul>
                     </div>
                 </div>

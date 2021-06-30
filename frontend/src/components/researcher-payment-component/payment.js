@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import image from '../../img/xxxx.png';
 
 
-export default function Approve() {
+export default function Resercherpayment() {
   const [card_number, setcard_numebr] = useState(' ');
   const [card_holder, setcard_holder] = useState(' ');
   const [date, setdate] = useState(' ');

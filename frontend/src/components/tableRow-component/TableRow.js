@@ -15,8 +15,9 @@ class TableRow extends Component{ // create table two component to get the confe
                     {this.props.obj.research_Type}
                 </td>
                 <td>
-                    <Link to={"/edit/" + this.props.obj._id} className="btn btn-primary">Edit</Link> 
-                </td>  
+
+                    <Link to={"/edit/" + this.props.obj._id} className="btn btn-primary">Edit</Link>
+                </td>
                 
             </tr>
         );

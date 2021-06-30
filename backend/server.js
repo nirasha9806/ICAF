@@ -8,6 +8,7 @@ const app = express();
 var fileUpload = require('express-fileupload');
 const conferenceRoute=require('./routes/conference-route');
 const researcherRoute = require('./routes/researcher-route');
+const attendeeRoute = require('./routes/attendee-route');
 const workshopRoute = require('./routes/workshopPresenter-route');
 const accountRoute = require('./routes/research-payment-route');
 const viewconferenceRoute = require('./routes/viewconferencedetails-route');
@@ -17,6 +18,7 @@ const researchPaperRoute = require('./routes/researchPaper-route');
 const ApprovedResearcherRoute = require('./routes/approvedResearches-route');
 const ApprovedProposalsRoute = require('./routes/approvedProposals-route');
 const FileRoutes = require('./routes/fileUpload-route');
+const loginRoute =  require('./routes/login-route');
 
 app.use(cors());
 
@@ -44,12 +46,15 @@ app.use('/api/account', accountRoute);
 app.use('/api/retrieve', viewconferenceRoute);
 app.use('/api/inserteditordetails', require('./routes/inserteditordetails-route'));
 app.use('/api/getinserteditordetails', require('./routes/approved-conferencedetails-route'));
-app.use('/api/conference', require('./routes/retrieveeditordata-route'));
+app.use('/api/viewresearchpaper', require('./routes/viewresearchpaper-route'));
+app.use('/api/viewproposal', require('./routes/viewproposal-route'));
 
 
 //nirasha
 app.use('/api/researcher', researcherRoute);
 app.use('/api/workshop', workshopRoute);
+app.use('/api/attendee', attendeeRoute);
+app.use('/api/login', loginRoute);
 
 
 //DB config
