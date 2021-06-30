@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import emailjs from "emailjs-com";
 //import { Link } from 'react-router-dom';
 import axios from "axios";
 import "../../css/Papers.css";
@@ -35,7 +36,7 @@ export default function ResearchPaperTable() {
       .post("http://localhost:5000/api/researchPaper/delete/" + id)
       .then((response) => {
         alert("Successfully Deleted !");
-        window.location='/researchPapers';
+        window.location = "/researchPapers";
       });
   };
 
@@ -64,6 +65,23 @@ export default function ResearchPaperTable() {
       });
   };
 
+  function sendEmail(e) {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        "service_l4g7ber",
+        "template_l0itd1s",
+        e.target,
+        "user_4L6ev1ZDXMBYB5Q3nYt1t"
+      )
+      .then((res) => {
+        console.log(res);
+        alert("Successfully Sent Email !");
+      })
+      .catch((err) => console.log(err));
+  }
+
   return (
     <div>
       <div className="container">
@@ -84,6 +102,32 @@ export default function ResearchPaperTable() {
               backgroundColor: "#F0F8FF",
             }}
           >
+            <form
+              className="row"
+              style={{ marginLeft: "300px", width: "25rem" }}
+              onSubmit={sendEmail}
+            >
+              <input
+                style={{ width: "25rem" }}
+                type="email"
+                class="form-control"
+                name="user_email"
+                placeholder="abc@gmail.com"
+              />
+              <input
+                className="btn btn-primary btn-sm"
+                type="submit"
+                value="Send Email"
+                style={{
+                  marginLeft: "125px",
+                  marginTop: "20px",
+                  width: "10rem",
+                }}
+              />
+            </form>
+
+            <br />
+
             <table className="table table-striped">
               <thead className="table-active">
                 <tr>
